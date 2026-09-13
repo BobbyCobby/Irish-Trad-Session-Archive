@@ -5,3 +5,5 @@ This folder is where the PDFs are archived. Example URL:
 ---
 
 I hope to add an automated index here in the future. If someone smarter than me sees this and PRs something to that effect, I'd be thrilled! :D
+
+<link rel="shortcut icon" type="image/png" href="{{ '/favicon.png?' | relative_url }}">
