@@ -46,3 +46,22 @@ jobs:
           else
             echo "No changes to commit"
           fi
+      
+      - name: Create release and tag
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+          TAG_NAME="archive-${TIMESTAMP}"
+          RELEASE_NAME="Archive - $(date +%Y-%m-%d)"
+          
+          # Create the tag
+          git tag "$TAG_NAME"
+          git push origin "$TAG_NAME"
+          
+          # Create the release with the archived PDF
+          gh release create "$TAG_NAME" \
+            "archive/irish-trad-session_${TIMESTAMP}.pdf" \
+            --title "$RELEASE_NAME" \
+            --notes "Automated archive of Irish trad session PDF"
