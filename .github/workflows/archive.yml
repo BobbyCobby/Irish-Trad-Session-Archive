@@ -2,8 +2,8 @@ name: Archive PDF
 
 on:
   schedule:
-    # Runs every Tuesday at 6:00 PM EDT (10:00 PM UTC)
-    - cron: '0 22 * * 2'
+    # Runs every Tuesday at 1:01 AM EST (6:01 AM UTC)
+    - cron: '1 6 * * 2'
   workflow_dispatch:
 
 jobs:
