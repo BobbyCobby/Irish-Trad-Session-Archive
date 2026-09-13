@@ -19,7 +19,7 @@ jobs:
       
       - name: Download PDF from Google Drive
         env:
-          DRIVE_URL: https://tinyurl.com/irishtradsessions
+          DRIVE_URL: https://drive.google.com/uc?export=download&id=1vV9V4qaenwJSOy_wc4SVtbxyLjmGZy_m
         run: |
           # Extract the file ID from the Google Drive URL
           # The tinyurl redirects to a Google Drive share link
