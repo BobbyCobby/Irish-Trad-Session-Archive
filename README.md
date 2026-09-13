@@ -1,2 +1,4 @@
 # Irish-Trad-Session-Archive
-Archive of https://tinyurl.com/irishtradsessions
+Weekly archive of https://tinyurl.com/irishtradsessions.
+
+Credit to Erich Marschner for assembling the PDFs archived here.
