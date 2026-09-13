@@ -1,1 +1,48 @@
+name: Archive PDF
 
+on:
+  schedule:
+    # Runs every Tuesday at 6:00 PM EDT (10:00 PM UTC)
+    - cron: '0 22 * * 2'
+  workflow_dispatch:
+
+jobs:
+  archive-pdf:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download PDF from Google Drive
+        env:
+          DRIVE_URL: https://tinyurl.com/irishtradsessions
+        run: |
+          # Extract the file ID from the Google Drive URL
+          # The tinyurl redirects to a Google Drive share link
+          curl -L "$DRIVE_URL" -o /tmp/session.pdf
+      
+      - name: Create archive directory if it doesn't exist
+        run: mkdir -p archive
+      
+      - name: Save PDF with timestamp
+        run: |
+          TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+          cp /tmp/session.pdf "archive/irish-trad-session_${TIMESTAMP}.pdf"
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add archive/
+          
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive Irish trad session PDF - $(date +%Y-%m-%d)"
+            git push
+          else
+            echo "No changes to commit"
+          fi
