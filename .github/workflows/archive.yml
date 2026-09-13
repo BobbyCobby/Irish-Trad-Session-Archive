@@ -29,9 +29,11 @@ jobs:
         run: mkdir -p archive
       
       - name: Save PDF with timestamp
+        id: save_pdf
         run: |
           TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
           cp /tmp/session.pdf "archive/irish-trad-session_${TIMESTAMP}.pdf"
+          echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
       
       - name: Commit and push changes
         run: |
@@ -52,7 +54,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+          TIMESTAMP="${{ steps.save_pdf.outputs.timestamp }}"
           TAG_NAME="archive-${TIMESTAMP}"
           RELEASE_NAME="Archive - $(date +%Y-%m-%d)"
           
