@@ -2,3 +2,5 @@
 Weekly archive of [Erich Marschner's Baltimore Irish session list](https://tinyurl.com/irishtradsessions). Can be found on [GitHub](https://github.com/BobbyCobby/Irish-Trad-Session-Archive); PRs welcome.
 
 Credits: [credits.md](credits.md)
+
+<link rel="shortcut icon" type="image/png" href="{{ '/favicon.png?' | relative_url }}">
