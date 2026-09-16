@@ -34,7 +34,37 @@ jobs:
           TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
           cp /tmp/session.pdf "archive/irish-trad-session_${TIMESTAMP}.pdf"
           echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
-      
+
+      - name: Update archive index
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          readme = Path('archive/README.md')
+          text = readme.read_text(encoding='utf-8')
+
+          pdfs = sorted(
+              p.name for p in Path('archive').glob('irish-trad-session_*.pdf')
+          )
+          pdfs = list(reversed(pdfs))
+
+          lines = [
+              '<!-- ARCHIVE_INDEX_START -->',
+              *[f'- [{pdf}]({pdf})' for pdf in pdfs],
+              '<!-- ARCHIVE_INDEX_END -->',
+          ]
+
+          block = '\n'.join(lines)
+          updated = re.sub(
+              r'<!-- ARCHIVE_INDEX_START -->.*?<!-- ARCHIVE_INDEX_END -->',
+              block,
+              text,
+              flags=re.S,
+          )
+          readme.write_text(updated, encoding='utf-8')
+          PY
+          
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
