@@ -4,5 +4,3 @@ Weekly archive of [Erich Marschner's Baltimore Irish session list](https://tinyu
 Access the archive here: [archive/README.md](archive/README.md).
 
 Credits: [credits.md](credits.md)
-
-<link rel="shortcut icon" type="image/png" href="{{ '/favicon.png?' | relative_url }}">

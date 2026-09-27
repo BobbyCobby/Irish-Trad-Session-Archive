@@ -11,5 +11,3 @@ The newest ones are at the top.
 - [irish-trad-session_2026-09-15_11-30-05.pdf](irish-trad-session_2026-09-15_11-30-05.pdf)
 - [irish-trad-session_2026-09-13_20-48-41.pdf](irish-trad-session_2026-09-13_20-48-41.pdf)
 <!-- ARCHIVE_INDEX_END -->
-
-<link rel="shortcut icon" type="image/png" href="{{ '/favicon.png?' | relative_url }}">
