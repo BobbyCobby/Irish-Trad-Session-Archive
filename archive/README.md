@@ -7,6 +7,7 @@ Each filename is irish-trad-session_yyyy-mm-dd_hh-mm-ss.pdf.
 The newest ones are at the top.
 
 <!-- ARCHIVE_INDEX_START -->
+- [irish-trad-session_2026-11-10_14-40-09.pdf](irish-trad-session_2026-11-10_14-40-09.pdf)
 - [irish-trad-session_2026-11-03_13-56-29.pdf](irish-trad-session_2026-11-03_13-56-29.pdf)
 - [irish-trad-session_2026-10-27_11-55-08.pdf](irish-trad-session_2026-10-27_11-55-08.pdf)
 - [irish-trad-session_2026-10-20_11-16-20.pdf](irish-trad-session_2026-10-20_11-16-20.pdf)
